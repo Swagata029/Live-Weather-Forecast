@@ -140,9 +140,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => {
     return JSON.parse(localStorage.getItem("darkMode")) || false;
   });
-  const [, setRecentSearches] = useState(() => {
-    return JSON.parse(localStorage.getItem("recentSearches")) || [];
-  });
 
   const current = weather?.current;
   const forecastToday = weather?.forecast?.forecastday?.[0];
@@ -199,20 +196,6 @@ function App() {
         setTitleLocation(data.location?.name || query);
       }
 
-      if (options.remember !== false && typeof query === "string") {
-        setRecentSearches((previousSearches) => {
-          const updated = [
-            query,
-            ...previousSearches.filter(
-              (item) => item.toLowerCase() !== query.toLowerCase(),
-            ),
-          ].slice(0, 5);
-
-          localStorage.setItem("recentSearches", JSON.stringify(updated));
-          return updated;
-        });
-      }
-
       return true;
     } catch (err) {
       setError(
@@ -228,10 +211,10 @@ function App() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        loadWeather(`${coords.latitude},${coords.longitude}`, { remember: false });
+        loadWeather(`${coords.latitude},${coords.longitude}`);
       },
       () => {
-        loadWeather(DEFAULT_LOCATION, { remember: false });
+        loadWeather(DEFAULT_LOCATION);
       },
       { timeout: 7000 },
     );
@@ -360,9 +343,7 @@ function App() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() =>
-                weather && loadWeather(weather.location.name, { remember: false })
-              }
+              onClick={() => weather && loadWeather(weather.location.name)}
               className="grid h-12 w-12 place-items-center rounded-2xl border border-white/50 bg-white/40 text-slate-900 shadow-lg shadow-sky-900/10 backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/60"
               aria-label="Refresh weather"
               title="Refresh weather"
