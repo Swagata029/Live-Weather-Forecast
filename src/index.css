@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@keyframes rainFall {
+  from {
+    transform: translateY(-20px);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes snowFall {
+  from {
+    transform: translateY(-20px);
+  }
+
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes sunlightPulse {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: rotate(28deg) translateY(-2%);
+  }
+
+  50% {
+    opacity: 0.44;
+    transform: rotate(28deg) translateY(2%);
+  }
+}
+
+.sunbeam {
+  position: absolute;
+  right: -18%;
+  top: -18%;
+  height: 120vh;
+  transform-origin: top right;
+  background: linear-gradient(
+    90deg,
+    rgb(254 240 138 / 0),
+    rgb(254 240 138 / 0.34),
+    rgb(255 255 255 / 0)
+  );
+  filter: blur(14px);
+  animation: sunlightPulse 7s ease-in-out infinite;
+}
+
+.sunbeam-wide {
+  width: 30vw;
+}
+
+.sunbeam-soft {
+  right: 2%;
+  width: 18vw;
+  animation-delay: -3s;
+  opacity: 0.2;
+}
