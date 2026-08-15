@@ -1,4 +1,4 @@
-# Weatherly - Live Weather Forecast
+# Weatherly - Live Weather Forecast 🌦️
 
 A modern and responsive real-time weather dashboard built with React.js, Tailwind CSS, and WeatherAPI.
 
