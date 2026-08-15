@@ -358,7 +358,7 @@ function App() {
               aria-label="Toggle color mode"
               title="Toggle color mode"
             >
-              {darkMode ? <TbMoon className="text-2xl" /> : <TbSun className="text-2xl" />}
+              {darkMode ? <TbSun className="text-2xl" /> : <TbMoon className="text-2xl" />}
             </button>
           </div>
         </header>
