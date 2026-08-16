@@ -164,3 +164,13 @@ Live-Weather-Forecast/
 ├── package.json
 ├── vite.config.js
 └── README.md
+```
+---
+
+## Author 👩‍💻
+
+### Swagata Talekar
+
+**Email:** talekarswagata2629@gmail.com
+
+**LinkedIn:** https://www.linkedin.com/in/swagata-talekar
